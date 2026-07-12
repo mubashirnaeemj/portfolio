@@ -81,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Mubashir Naeem Janjua designs production AI automation systems: voice agents, backend platforms, workflow automation, and integrations that replace real business operations.",
+          "AI automation engineer building production voice agents, backend systems, and workflow automations for real business operations.",
       },
       { name: "author", content: "Mubashir Naeem Janjua" },
       { name: "theme-color", content: "#09090B" },
@@ -89,10 +89,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Production AI automation systems — voice agents, backend, workflow automation, integrations.",
+          "AI automation engineer building production voice agents, backend systems, and workflow automations for real business operations.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Mubashir Naeem Janjua — AI Automation Engineer" },
+      { name: "twitter:description", content: "AI automation engineer building production voice agents, backend systems, and workflow automations for real business operations." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e97a25a8-7b43-421d-8b98-99ea99220d70/id-preview-29d197b9--e0caf0a3-413b-4d14-bbc3-d7d2f91b0303.lovable.app-1783881578082.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e97a25a8-7b43-421d-8b98-99ea99220d70/id-preview-29d197b9--e0caf0a3-413b-4d14-bbc3-d7d2f91b0303.lovable.app-1783881578082.png" },
     ],
     links: [
       {
