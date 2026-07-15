@@ -23,7 +23,7 @@ const LINKS = [
   {
     label: "Resume",
     value: "PDF · updated 2026",
-    href: resumeAsset.url,
+    href: "/resume.pdf",
     icon: Download,
   },
 ];
