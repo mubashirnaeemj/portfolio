@@ -1,5 +1,6 @@
 import { Section, Reveal } from "./primitives";
 import { Mail, Linkedin, Github, ArrowUpRight, Download } from "lucide-react";
+import resumeAsset from "@/assets/resume.pdf.asset.json";
 
 const LINKS = [
   {
@@ -10,20 +11,20 @@ const LINKS = [
   },
   {
     label: "LinkedIn",
-    value: "/in/mubashir-naeem",
-    href: "https://linkedin.com",
+    value: "Mubashir Naeem",
+    href: "https://www.linkedin.com/in/mubashirnaeemj/",
     icon: Linkedin,
   },
   {
     label: "GitHub",
-    value: "@mubashir-naeem",
-    href: "https://github.com",
+    value: "@mubashirnaeemj",
+    href: "https://github.com/mubashirnaeemj",
     icon: Github,
   },
   {
     label: "Resume",
     value: "PDF · updated 2026",
-    href: "#resume",
+    href: resumeAsset.url,
     icon: Download,
   },
 ];
