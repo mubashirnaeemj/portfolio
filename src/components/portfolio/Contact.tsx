@@ -1,5 +1,6 @@
 import { Section, Reveal } from "./primitives";
 import { Mail, Linkedin, Github, ArrowUpRight, Download } from "lucide-react";
+import resumeAsset from "../../assets/resume.pdf.asset.json";
 
 const LINKS = [
   {
@@ -23,7 +24,7 @@ const LINKS = [
   {
     label: "Resume",
     value: "PDF · updated 2026",
-    href: "/resume.pdf",
+    href: resumeAsset.url,
     icon: Download,
   },
 ];
@@ -55,8 +56,9 @@ export function Contact() {
             <Reveal key={l.label} delay={i * 0.04}>
               <a
                 href={l.href}
-                target={l.href.startsWith("http") ? "_blank" : undefined}
+                target={l.href.startsWith("http") || l.label === "Resume" ? "_blank" : undefined}
                 rel="noreferrer"
+                download={l.label === "Resume" ? "Mubashir-Naeem-Resume.pdf" : undefined}
                 className="group flex items-center justify-between bg-background p-8 transition-colors hover:bg-surface/70"
               >
                 <div className="flex items-center gap-5">

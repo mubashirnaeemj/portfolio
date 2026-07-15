@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowUpRight, Download } from "lucide-react";
 import { ArchitectureViz } from "./ArchitectureViz";
+import resumeAsset from "../../assets/resume.pdf.asset.json";
 
 export function Hero() {
   return (
@@ -62,7 +63,10 @@ export function Hero() {
               />
             </a>
             <a
-              href="#resume"
+              href={resumeAsset.url}
+              target="_blank"
+              rel="noreferrer"
+              download="Mubashir-Naeem-Resume.pdf"
               className="group inline-flex items-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 text-[13.5px] font-medium text-foreground transition-colors hover:border-primary/40 hover:text-primary"
             >
               <Download size={14} />
