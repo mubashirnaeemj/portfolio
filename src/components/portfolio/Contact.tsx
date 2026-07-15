@@ -1,6 +1,5 @@
 import { Section, Reveal } from "./primitives";
 import { Mail, Linkedin, Github, ArrowUpRight, Download } from "lucide-react";
-import resumeAsset from "@/assets/resume.pdf.asset.json";
 
 const LINKS = [
   {
