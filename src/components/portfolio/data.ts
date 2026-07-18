@@ -14,12 +14,67 @@ export type Project = {
   metrics: { label: string; value: string }[];
   stack: string[];
   accent: "primary" | "accent";
+  flow?: string[];
 };
 
 export const PROJECTS: Project[] = [
   {
-    id: "ai-calling-platform",
+    id: "ulcer-classification",
     index: "01",
+    name: "AI-Based Ulcer Classification System",
+    tagline:
+      "A full-stack endoscopic diagnostic support tool that classifies GI tissue into 8 categories in real time — with Grad-CAM overlays so clinicians see why the model decided what it did.",
+    year: "2025 – 2026",
+    role: "Final Year Project · Lead engineer",
+    status: "Clinically validated",
+    accent: "accent",
+    problem:
+      "Endoscopic ulcer diagnosis is manual and time-intensive — GI specialists review hundreds of images per patient, and many clinics don't have experienced gastroenterologists on staff at all.",
+    solution:
+      "A fine-tuned DenseNet121 served behind a Flask API classifies each frame into 8 GI categories in ~2 seconds, with Grad-CAM heatmaps rendered alongside every prediction so doctors verify reasoning instead of trusting a black box.",
+    architecture: [
+      "DenseNet121 fine-tuned from ImageNet weights; model loaded once at Flask startup as a singleton for fast inference.",
+      "Grad-CAM layer produces a heatmap overlay per prediction, returned to the client next to the confidence score.",
+      "MySQL stores patients, doctors, and prediction history with role-based access across Admin and Doctor portals.",
+      "JWT auth, BCrypt password hashing, and parameterized queries throughout the API surface.",
+      "n8n workflow fires after each prediction: generates a PDF report, emails it to the patient, and logs the result to Google Sheets.",
+    ],
+    challenges: [
+      "Balancing accuracy against inference latency for near-real-time clinical use.",
+      "Preventing overfitting on a moderate medical dataset — transfer learning, augmentation, and early stopping.",
+      "Making output trustworthy to non-technical clinicians, not just accurate — solved with Grad-CAM + confidence scoring.",
+    ],
+    outcome:
+      "Validated with 14 medical professionals: 92%+ test accuracy across 8 classes, 2.1s average inference, and an 82.8 SUS usability score.",
+    metrics: [
+      { label: "Test accuracy", value: "92%+" },
+      { label: "Inference time", value: "2.1s" },
+      { label: "SUS score", value: "82.8" },
+      { label: "Classes", value: "8" },
+    ],
+    stack: [
+      "TensorFlow/Keras",
+      "DenseNet121",
+      "Grad-CAM",
+      "Flask",
+      "MySQL",
+      "n8n",
+      "JavaScript",
+      "Chart.js",
+      "JWT",
+    ],
+    flow: [
+      "Image Upload",
+      "Preprocessing",
+      "DenseNet121",
+      "Grad-CAM",
+      "MySQL Log",
+      "n8n · PDF + Email + Sheets",
+    ],
+  },
+  {
+    id: "ai-calling-platform",
+    index: "02",
     name: "AI Calling Platform",
     tagline:
       "A production outbound calling system that runs 500 AI-driven conversations a day and writes every result back to Salesforce.",
@@ -67,7 +122,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "ai-calling-assistant",
-    index: "02",
+    index: "03",
     name: "AI Calling Assistant",
     tagline:
       "A desktop copilot that listens to a live sales call, pulls the right Salesforce record, and whispers the next line to the rep.",
@@ -102,7 +157,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "lead-enrichment",
-    index: "03",
+    index: "04",
     name: "Lead Enrichment System",
     tagline:
       "An n8n workflow that turns a raw ZIP code into a scored list of local businesses, cold-call scripts, and SMS outreach — no humans in the loop.",
@@ -137,7 +192,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "video-automation",
-    index: "04",
+    index: "05",
     name: "Video Automation Pipeline",
     tagline:
       "Long-form content in, short-form clips out — captioned, titled, and posted to three platforms without touching a keyboard.",
@@ -169,7 +224,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "sign-language",
-    index: "05",
+    index: "06",
     name: "Real-Time Sign Language Translation",
     tagline:
       "A computer-vision system that reads hand shapes from a webcam and translates them into text in real time.",
@@ -209,7 +264,7 @@ export const SKILL_GROUPS: {
   {
     category: "AI",
     caption: "Reasoning, voice, and vision — used in production, not demos.",
-    items: ["OpenAI", "ElevenLabs", "Deepgram", "AI Agents", "Voice Agents", "Prompt Engineering"],
+    items: ["OpenAI", "ElevenLabs", "Deepgram", "TensorFlow/Keras", "DenseNet121", "Grad-CAM", "AI Agents", "Voice Agents", "Prompt Engineering"],
   },
   {
     category: "Automation",
@@ -219,7 +274,7 @@ export const SKILL_GROUPS: {
   {
     category: "Backend",
     caption: "APIs and services that stay up under real traffic.",
-    items: ["Python", "FastAPI", "REST APIs", "PostgreSQL", "Redis", "Async I/O"],
+    items: ["Python", "FastAPI", "Flask", "REST APIs", "PostgreSQL", "MySQL", "Redis", "Async I/O"],
   },
   {
     category: "Integrations",
@@ -251,6 +306,13 @@ export const TIMELINE: {
     place: "Independent",
     tag: "Now",
     body: "Building production AI systems for sales and operations teams — outbound calling platforms, live call copilots, lead enrichment pipelines, and the backends behind them.",
+  },
+  {
+    year: "2025 – 2026",
+    title: "Final Year Project — AI Ulcer Classification",
+    place: "University",
+    tag: "Capstone",
+    body: "Designed and shipped a full-stack endoscopic diagnostic tool: fine-tuned DenseNet121 behind a Flask API, Grad-CAM explainability, MySQL + role-based portals, and an n8n reporting workflow. Validated with 14 clinicians.",
   },
   {
     year: "2024 – 2025",
