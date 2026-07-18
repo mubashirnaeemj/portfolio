@@ -1,5 +1,8 @@
 import { Section, Reveal } from "./primitives";
 import { GitBranch, Star, GitCommit } from "lucide-react";
+import { useEffect, useState } from "react";
+
+const GH_USER = "mubashirnaeemj";
 
 const REPOS = [
   {
@@ -32,23 +35,6 @@ const REPOS = [
   },
 ];
 
-// A synthetic-but-realistic contribution heatmap (52 weeks × 7 days).
-const HEATMAP = Array.from({ length: 52 }, (_, w) =>
-  Array.from({ length: 7 }, (_, d) => {
-    const seed = (w * 7 + d) * 9301 + 49297;
-    const r = (seed % 233280) / 233280;
-    // Higher density mid-year and weekdays
-    const midYear = Math.exp(-Math.pow((w - 26) / 22, 2));
-    const weekday = d > 0 && d < 6 ? 1 : 0.55;
-    const v = r * midYear * weekday;
-    if (v < 0.08) return 0;
-    if (v < 0.2) return 1;
-    if (v < 0.4) return 2;
-    if (v < 0.6) return 3;
-    return 4;
-  }),
-);
-
 const CELL_COLORS = [
   "bg-white/[0.04]",
   "bg-primary/20",
@@ -57,7 +43,48 @@ const CELL_COLORS = [
   "bg-primary",
 ];
 
+type Contrib = { date: string; count: number; level: 0 | 1 | 2 | 3 | 4 };
+
+function buildWeeks(contribs: Contrib[]): number[][] {
+  // Take the last 364 days aligned to weeks starting on Sunday
+  const sorted = [...contribs].sort((a, b) => a.date.localeCompare(b.date));
+  const last = sorted.slice(-371);
+  // Pad start so first column begins on Sunday
+  const firstDow = new Date(last[0]?.date ?? new Date()).getUTCDay();
+  const padded: (number | null)[] = Array(firstDow).fill(null).concat(last.map((c) => c.level));
+  const weeks: number[][] = [];
+  for (let i = 0; i < padded.length; i += 7) {
+    const week = padded.slice(i, i + 7).map((v) => (v == null ? 0 : v));
+    while (week.length < 7) week.push(0);
+    weeks.push(week);
+  }
+  return weeks.slice(-52);
+}
+
 export function GitHubStats() {
+  const [weeks, setWeeks] = useState<number[][] | null>(null);
+  const [total, setTotal] = useState<number | null>(null);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(`https://github-contributions-api.jogruber.de/v4/${GH_USER}?y=last`)
+      .then((r) => {
+        if (!r.ok) throw new Error("bad status");
+        return r.json();
+      })
+      .then((data: { total: Record<string, number>; contributions: Contrib[] }) => {
+        if (cancelled) return;
+        setWeeks(buildWeeks(data.contributions));
+        const totals = Object.values(data.total ?? {});
+        setTotal(totals.length ? totals[totals.length - 1] : data.contributions.reduce((s, c) => s + c.count, 0));
+      })
+      .catch(() => !cancelled && setError(true));
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   return (
     <Section
       id="github"
@@ -75,7 +102,8 @@ export function GitHubStats() {
                   Contributions · last 12 months
                 </div>
                 <div className="mt-2 font-display text-[2rem] leading-none tracking-tight text-foreground">
-                  1,428 <span className="text-muted-foreground">commits</span>
+                  {total != null ? total.toLocaleString() : error ? "—" : "…"}{" "}
+                  <span className="text-muted-foreground">contributions</span>
                 </div>
               </div>
               <div className="flex items-center gap-4 text-[12px] text-muted-foreground">
@@ -91,7 +119,7 @@ export function GitHubStats() {
 
             <div className="mt-6 overflow-x-auto">
               <div className="flex gap-[3px]">
-                {HEATMAP.map((week, wi) => (
+                {(weeks ?? Array.from({ length: 52 }, () => Array(7).fill(0))).map((week, wi) => (
                   <div key={wi} className="flex flex-col gap-[3px]">
                     {week.map((v, di) => (
                       <span
