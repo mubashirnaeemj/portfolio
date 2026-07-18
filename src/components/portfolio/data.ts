@@ -303,9 +303,9 @@ export const TIMELINE: {
   {
     year: "2026 —",
     title: "AI Automation Engineer",
-    place: "Independent",
+    place: "Axioware",
     tag: "Now",
-    body: "Building production AI systems for sales and operations teams — outbound calling platforms, live call copilots, lead enrichment pipelines, and the backends behind them.",
+    body: "Building production AI systems for sales and operations teams at Axioware — outbound calling platforms, live call copilots, lead enrichment pipelines, and the backends behind them.",
   },
   {
     year: "2025 – 2026",
@@ -317,9 +317,9 @@ export const TIMELINE: {
   {
     year: "2024 – 2025",
     title: "Software Engineering Intern",
-    place: "Axioware",
+    place: "Gul Ahmed Textile Mills Limited",
     tag: "Internship",
-    body: "Shipped backend services and automation glue in a production codebase. First real exposure to running systems that other people depend on.",
+    body: "Interned in the IT department at one of Pakistan's largest textile manufacturers. Supported and built internal software systems that teams relied on day-to-day.",
   },
   {
     year: "2023 – 2024",
@@ -329,10 +329,10 @@ export const TIMELINE: {
     body: "Ran workshops on applied ML, agents, and backend engineering. Mentored juniors through their first end-to-end projects.",
   },
   {
-    year: "2021 – 2025",
-    title: "B.S. Computer Science",
+    year: "2022 – 2026",
+    title: "B.S. Artificial Intelligence",
     place: "Pakistan",
     tag: "Education",
-    body: "Focused on machine learning, distributed systems, and everything the syllabus wouldn't teach — production APIs, integrations, infrastructure.",
+    body: "Focused on machine learning, neural networks, and applied AI — plus the engineering the syllabus wouldn't teach: production APIs, integrations, and infrastructure.",
   },
 ];
