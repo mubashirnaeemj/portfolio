@@ -14,6 +14,7 @@ export type Project = {
   metrics: { label: string; value: string }[];
   stack: string[];
   accent: "primary" | "accent";
+  flow?: string[];
 };
 
 export const PROJECTS: Project[] = [
@@ -61,6 +62,14 @@ export const PROJECTS: Project[] = [
       "JavaScript",
       "Chart.js",
       "JWT",
+    ],
+    flow: [
+      "Image Upload",
+      "Preprocessing",
+      "DenseNet121",
+      "Grad-CAM",
+      "MySQL Log",
+      "n8n · PDF + Email + Sheets",
     ],
   },
   {
