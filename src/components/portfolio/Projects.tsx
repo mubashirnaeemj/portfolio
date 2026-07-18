@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { Section, Reveal } from "./primitives";
 import { PROJECTS, type Project } from "./data";
+import { ProjectFlow } from "./ProjectFlow";
 import { cn } from "@/lib/utils";
 
 export function Projects() {
@@ -113,6 +114,9 @@ function ProjectCard({ project, reversed }: { project: Project; reversed: boolea
 
         {/* Side rail */}
         <div className={cn("md:col-span-5 space-y-6", reversed && "md:order-1")}>
+          {project.flow && (
+            <ProjectFlow nodes={project.flow} accent={project.accent} />
+          )}
           <MetricsPanel project={project} />
           <div>
             <BlockLabel>Stack</BlockLabel>
