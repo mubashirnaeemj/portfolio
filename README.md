@@ -32,4 +32,4 @@ bun run dev
 ## Links
 
 - [GitHub](https://github.com/mubashirnaeemj)
-- [LinkedIn](https://www.linkedin.com/in/mubashirnaeem)
+- [LinkedIn](https://www.linkedin.com/in/mubashirnaeemj/)
