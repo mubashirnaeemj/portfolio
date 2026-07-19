@@ -84,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "AI automation engineer building production voice agents, backend systems, and workflow automations for real business operations.",
       },
       { name: "author", content: "Mubashir Naeem Janjua" },
-      { name: "theme-color", content: "#09090B" },
+      { name: "theme-color", content: "#0F1115" },
       { property: "og:title", content: "Mubashir Naeem Janjua — AI Automation Engineer" },
       {
         property: "og:description",

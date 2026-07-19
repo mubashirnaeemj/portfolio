@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pt-32 md:pt-40">
       <div className="pointer-events-none absolute inset-0 grid-lines opacity-30 [mask-image:radial-gradient(ellipse_at_top,black_20%,transparent_70%)]" />
-      <div className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]" />
+      <div className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-primary/[0.04] blur-[140px]" />
 
       <div className="relative mx-auto grid w-full max-w-[1240px] gap-16 px-6 pb-24 md:grid-cols-12 md:gap-10 md:px-10 md:pb-32">
         <div className="md:col-span-7">
