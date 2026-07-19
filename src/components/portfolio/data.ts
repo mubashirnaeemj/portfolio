@@ -80,7 +80,7 @@ export const PROJECTS: Project[] = [
       "A production outbound calling system that runs 500 AI-driven conversations a day and writes every result back to Salesforce.",
     year: "2025",
     role: "Sole engineer",
-    status: "In production",
+    status: "Shipped",
     accent: "primary",
     problem:
       "A sales org was manually dialing lists of leads, losing hours to voicemail and disconnected numbers, with no reliable way to capture what was said or follow up at scale.",
@@ -163,7 +163,7 @@ export const PROJECTS: Project[] = [
       "An n8n workflow that turns a raw ZIP code into a scored list of local businesses, cold-call scripts, and SMS outreach — no humans in the loop.",
     year: "2025",
     role: "Automation engineer",
-    status: "In production",
+    status: "Shipped",
     accent: "primary",
     problem:
       "Sourcing local leads meant hours in Google Maps, spreadsheets, and manual scripting — and the output was inconsistent from rep to rep.",
