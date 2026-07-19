@@ -40,7 +40,7 @@ export function ArchitectureViz() {
             }}
             style={{
               offsetPath: `path('${d}')`,
-              filter: "drop-shadow(0 0 6px oklch(0.646 0.185 259 / 0.9))",
+              filter: "drop-shadow(0 0 4px oklch(0.548 0.226 262 / 0.6))",
             }}
           />
         ))}
