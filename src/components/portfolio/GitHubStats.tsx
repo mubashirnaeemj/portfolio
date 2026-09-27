@@ -13,9 +13,9 @@ const REPOS = [
     forks: 6,
   },
   {
-    name: "call-assistant-electron",
-    desc: "Realtime call copilot for reps — Electron + Deepgram + OpenAI + Salesforce lookup.",
-    lang: "TypeScript",
+    name: "ai-sales-call-copilot",
+    desc: "Realtime call copilot for reps — Electron + Deepgram + Claude + Salesforce lookup.",
+    lang: "JavaScript",
     stars: 27,
     forks: 3,
   },
