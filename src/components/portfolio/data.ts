@@ -133,7 +133,7 @@ export const PROJECTS: Project[] = [
     problem:
       "Reps taking inbound calls were juggling a CRM tab, a notes doc, and a script — missing details and losing the thread of the conversation.",
     solution:
-      "An Electron app that captures the call audio, streams it to Deepgram, matches the caller against Salesforce, and surfaces objection-handling suggestions from OpenAI in real time.",
+      "An Electron app that captures the call audio, streams it to Deepgram, matches the caller against Salesforce, and surfaces objection-handling suggestions from Claude in real time.",
     architecture: [
       "Electron main process taps the system audio device and streams PCM frames to Deepgram.",
       "Renderer displays live transcription with role diarization and a rolling context window.",
