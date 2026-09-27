@@ -138,7 +138,7 @@ export const PROJECTS: Project[] = [
       "Electron main process taps the system audio device and streams PCM frames to Deepgram.",
       "Renderer displays live transcription with role diarization and a rolling context window.",
       "Caller ID + fuzzy match against Salesforce opens the right account and history within 300ms.",
-      "OpenAI runs a lightweight suggestion agent seeded with product docs and past-call summaries.",
+      "Claude runs a lightweight suggestion agent seeded with product docs and past-call summaries.",
     ],
     challenges: [
       "Cross-platform audio capture without breaking the OS mixer.",
@@ -149,11 +149,11 @@ export const PROJECTS: Project[] = [
       "Reps close notes faster and stop tab-switching mid-call. Every conversation ends with a structured summary already in the CRM.",
     metrics: [
       { label: "Live transcription", value: "Real-time" },
-      { label: "Suggestion latency", value: "< 800ms" },
+      { label: "Suggestion trigger", value: "300ms silence detection" },
       { label: "Platforms", value: "macOS / Win" },
       { label: "CRM sync", value: "Salesforce" },
     ],
-    stack: ["Electron", "TypeScript", "Deepgram", "OpenAI", "Salesforce API"],
+    stack: ["Electron", "JavaScript", "Deepgram", "Anthropic Claude", "Salesforce API"],
   },
   {
     id: "lead-enrichment",
@@ -264,7 +264,7 @@ export const SKILL_GROUPS: {
   {
     category: "AI",
     caption: "Reasoning, voice, and vision — used in production, not demos.",
-    items: ["OpenAI", "ElevenLabs", "Deepgram", "TensorFlow/Keras", "DenseNet121", "Grad-CAM", "AI Agents", "Voice Agents", "Prompt Engineering"],
+    items: ["OpenAI", "Anthropic Claude", "ElevenLabs", "Deepgram", "TensorFlow/Keras", "DenseNet121", "Grad-CAM", "AI Agents", "Voice Agents", "Prompt Engineering"],
   },
   {
     category: "Automation",
